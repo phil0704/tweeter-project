@@ -39,12 +39,16 @@ class User extends Authenticatable
 
     public function Tweets()
     {
-      return $this->hasMany(Tweet::class);
+      return $this->hasMany('App\Tweet');
     }
 
-    public function teams()
+    public function comments()
     {
-      return $this->hasOne(Team::class);
+      return $this->hasMany('App\Comment');
     }
 
+    public function profiles()
+    {
+      return $this->hasOne('App\Profile');
+    }
 }

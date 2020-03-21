@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTeamsTable extends Migration
+class CreateLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,12 @@ class CreateTeamsTable extends Migration
      */
     public function up()
     {
-        Schema::create('teams', function (Blueprint $table) {
-          $table->bigIncrements('id');
-          $table->string('team_name');
+        Schema::create('likes', function (Blueprint $table) {
+          $table->id();
+          $table->unsignedBigInteger('user_id')->nullable();
+          $table->unsignedBigInteger('likes_id')->nullable();
+          $table->string('likeable_type');
+          $table->softDeletes();
           $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ class CreateTeamsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('teams');
+        Schema::dropIfExists('likes');
     }
 }

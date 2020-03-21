@@ -17,17 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource( 'tweets', 'TweetController' );
 
 Auth::routes();
 
 
-
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/p/create', 'TweetController@create')->name('profile.create');
+Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
+Route::get('/edit/{user}', 'EditController@index')->name('user.edit');
+Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@likePost']);
+Route::get('comment/like/{id}', ['as' => 'comment.like', 'uses' => 'LikeController@likeComment']);
 
 
+Route::resource('tweets', 'TweetController');
+Route::resource('comment', 'CommentController');
 
-Route::get('/p/create', 'TweetController@create')->name('team.create');
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
+Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/p', 'TweetController@store')->name('tweets.store');
-
-Route::get('/teams/{user}', 'ProfilesController@index')->name('profile.show');

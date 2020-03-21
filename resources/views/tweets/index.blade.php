@@ -9,6 +9,7 @@ Tweets Index
         {{ session()->get('success') }}
     </div>
 @endif
+@include('partials.errors')
 <p>List of Tweets:</p>
 <ul>
     @foreach($tweets as $tweet)
@@ -18,6 +19,14 @@ Tweets Index
                 {{ $tweet->message }}
             </p>
             <ul>
+              <h3>
+                <li>
+                  <a href="{{route('profile.show', $tweet->user->id)}}">
+                      {{$tweet->name}}
+                   </a>
+                 </h3>
+                </li>
+
                 <li>
                     <a href="{{ route('tweets.show', $tweet->id) }}">
                         Read More

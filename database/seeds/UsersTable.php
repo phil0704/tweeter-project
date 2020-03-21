@@ -23,7 +23,7 @@ class UsersTable extends Seeder
           $user->name = $faker->name;
           $user->email = $faker->email;
           $user->password = 'password';
-          $user->age = rand( 13, 65 );
+          $user->username = $faker->username;
           $user->save();
       }
     }

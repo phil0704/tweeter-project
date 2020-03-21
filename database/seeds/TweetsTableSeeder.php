@@ -45,12 +45,11 @@ class TweetsTableSeeder extends Seeder
     // Initialize!
     $faker = Factory::create();
 
-    $users = User::all();
-    $numberOfUsers = count( $users );
+
     // Let's make 25 Tweets in just a few lines!
-    foreach( range( 1, 35 ) as $index ) {
+    foreach( range( 1, 25 ) as $index ) {
         DB::table( 'tweets' )->insert( array(
-            'user_id' => rand( 1, $numberOfUsers ),
+            'user_id' => $faker->numberBetween($min = 1, $max = 5),
             'message' => $faker->catchphrase
         ) );
     }

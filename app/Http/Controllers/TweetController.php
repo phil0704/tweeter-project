@@ -50,7 +50,7 @@ class TweetController extends Controller
         // Assign and check user all at once.
         if ( $user = Auth::user() ) { // Proceed and store data if the user is logged in.
             $validatedData = $request->validate(array(
-                'message' => 'required|max:255'
+                'message' => 'required|max:250'
             ));
             $tweet = new Tweet;
             $tweet->user_id = $user->id;
@@ -108,7 +108,7 @@ class TweetController extends Controller
       // Check if user is logged in.
       if ( $user = Auth::user() ) {
           $validatedData = $request->validate(array(
-              'message' => 'required|max:255'
+              'message' => 'required|max:250'
           ));
 
           Tweet::whereId($id)->update($validatedData);
@@ -137,6 +137,6 @@ class TweetController extends Controller
       }
       // Redirect by default.
       return redirect('/tweets');
-  
+
     }
 }

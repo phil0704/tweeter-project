@@ -10,14 +10,16 @@ Edit Tweet
     @csrf
     @method('PATCH')
     {{-- ^^^ Cross-site request forgery protection --}}
+
+    <div class="form-group">
     <label for="message">
-        <strong>Input a Message:</strong>
+        <strong>Edit Message:</strong>
         <textarea name="message" id="message" cols="30" rows="10">{{ $tweet->message }}</textarea>
     </label>
-    {{--<label for="author">
-        <strong>Author Name:</strong>
-        <input type="text" name="author" id="author" value="{{ $tweet->author }}">
-    </label>--}}
-    <input type="submit" value="Update Tweet">
+    </div>
+
+    <div class="form-group">
+    <input type="submit" class="btn btn-warning" value="Update Tweet">
+    </div>
 </form>
 @endsection

@@ -9,14 +9,16 @@ Create Tweet Form
 <form method="post" action="{{ route('tweets.store') }}">
     @csrf
     {{-- ^^^ Cross-site request forgery protection --}}
+    <div class="form-group">
+
     <label for="message">
-        <strong>Input a Message:</strong>
+        <strong>Create a Message:</strong>
         <textarea name="message" id="message" cols="30" rows="10"></textarea>
     </label>
-    {{--<label for="author">
-        <strong>Author Name:</strong>
-        <input type="text" name="author" id="author">
-    </label>--}}
-    <input type="submit" value="Publish Tweet">
+    </div>
+
+    <div class="form-group">
+       <input type="submit" class="btn btn-warning" value="Publish Tweet">
+    </div>
 </form>
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tweet;
 use App\User;
 use App\Comment;
+use App\Follower;
 use Auth;
 
 class ProfileController extends Controller
@@ -78,6 +79,27 @@ class ProfileController extends Controller
         return redirect('/tweets');
     }
 
+    public function followProfile($id)
+    {
+      $follow = new Follower;
+      $follow->profile = profile()->id;
+      $follow->follower_id = $id;
+      $follow->followed = 1;
+      $follow->save();
+
+      return redirect()->back();
+    }
+
+    public function UnfollowProfile($id)
+    {
+      $follow = Follower::where('profile_id', profile()->id)
+                        ->where('follower_id', $id)
+                        ->delete();
+
+      return redirect()->back();
+    }
+
+
     /**
      * Update the specified resource in storage.
      *
@@ -99,5 +121,11 @@ class ProfileController extends Controller
         }
         // Redirect by default.
         return redirect('/tweets');
+    }
+
+    public function user($id)
+    {
+        $user = User::find($id);
+        return view('usersView', compact('user'));
     }
 }

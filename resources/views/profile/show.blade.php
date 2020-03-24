@@ -1,13 +1,13 @@
 @extends('layout')
 
 @section('title')
-Profile
+ View Profile
 @endsection
 
 @section('content')
 
-@include('partials.errors')
-  <h2>{{$user->name}}</h2>
+@include('command.errors')
+<h2>{{$user->name}}</h2>
   <p>
   <ul>
      <li>
@@ -18,5 +18,4 @@ Profile
    </li>
  </ul>
 </p>
-
 @endsection

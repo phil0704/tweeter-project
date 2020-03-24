@@ -9,7 +9,7 @@ Tweets Index
         {{ session()->get('success') }}
     </div>
 @endif
-@include('partials.errors')
+@include('command.errors')
 <p>List of Tweets:</p>
 <ul>
     @foreach($tweets as $tweet)

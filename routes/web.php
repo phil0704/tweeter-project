@@ -20,18 +20,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/p/create', 'TweetController@create')->name('profile.create');
-Route::get('/profile/{user}', 'ProfileController@index')->name('profile.show');
-Route::get('/edit/{user}', 'EditController@index')->name('user.edit');
-Route::get('post/like/{id}', ['as' => 'post.like', 'uses' => 'LikeController@likePost']);
-Route::get('comment/like/{id}', ['as' => 'comment.like', 'uses' => 'LikeController@likeComment']);
 
+Route::get('users', 'HomeController@users')->name('users');
+Route::get('user/{id}', 'HomeController@user')->name('user.view');
+Route::get('tweets', 'HomeController@posts')->name('tweets');
+Route::get('/p/create', 'TweetController@create')->name('profile.create');
 
 Route::resource('tweets', 'TweetController');
 Route::resource('comment', 'CommentController');
+Route::resource('profile', 'ProfileController');
 
 Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/p', 'TweetController@store')->name('tweets.store');
+Route::post('follow', 'HomeController@follwUserRequest')->name('follow');
+Route::post('like', 'HomeController@LikePost')->name('like');

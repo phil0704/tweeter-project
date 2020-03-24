@@ -43,7 +43,7 @@ class TweetsTableSeeder extends Seeder
      */
 
     // Initialize!
-    $faker = Factory::create();
+    $faker = Faker\Factory::create();
 
 
     // Let's make 25 Tweets in just a few lines!

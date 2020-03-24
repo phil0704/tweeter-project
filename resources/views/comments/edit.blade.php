@@ -5,7 +5,7 @@ Edit Comment
 @endsection
 @section('content')
 <p>Edit Comment:</p>
-@include('partials.errors')
+@include('command.errors')
 
 <form method="post" action="{{route('comment.update', $comment->id)}}">
   @csrf

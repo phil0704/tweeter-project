@@ -10,10 +10,13 @@
         <script src="{{ asset('js/app.js') }}" type="text/javascript" defer></script>
     </head>
     <body>
+        @include('command.nav')
         <h1>
             @yield('title')
         </h1>
-        @include('partials.navigation')
+
         @yield('content')
+        @include('command.footer')
+        
     </body>
 </html>

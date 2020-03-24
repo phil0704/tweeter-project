@@ -5,7 +5,7 @@ Edit Tweet
 @endsection
 @section('content')
 <p>Use this form to edit your tweet.</p>
-@include('partials.errors')
+@include('command.errors')
 <form method="post" action="{{ route('tweets.update', $tweet->id) }}">
     @csrf
     @method('PATCH')
@@ -13,7 +13,7 @@ Edit Tweet
 
     <div class="form-group">
     <label for="message">
-        <strong>Edit Message:</strong>
+        <strong>Edit Tweet:</strong>
         <textarea name="message" id="message" cols="30" rows="10">{{ $tweet->message }}</textarea>
     </label>
     </div>

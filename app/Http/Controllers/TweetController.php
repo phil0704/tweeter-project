@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tweet; // Need to pull in our model to use it!
 use App\User; // Let's pull in our User model!
+use App\Profile;
+use App\Comment;
+use App\Follower;
 use Auth; // Need to pull in Auth in order to use it!
 
 class TweetController extends Controller
@@ -15,14 +18,14 @@ class TweetController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
-        $tweets = Tweet::query()
-                 ->join( 'users', 'tweets.user_id', '=', 'users.id' )
-                 ->get();
+   {
+     //
+       $tweets = Tweet::query()
+                   ->join( 'users', 'tweets.user_id', '=', 'users.id' )
+                   ->get();
 
-        return view('tweets.index', compact('tweets'));
-    }
+       Return view('tweets.index', compact('tweets'));
+   }
 
     /**
      * Show the form for creating a new resource.
@@ -139,4 +142,4 @@ class TweetController extends Controller
       return redirect('/tweets');
 
     }
-}
+  }

@@ -18,12 +18,12 @@
        <ul>
          @auth
          <li>
-             <a href="{{route('comment.edit', $comment->id)}}">
+             <a href="{{route('comments.edit', $comment->id)}}">
                Edit Comment
              </a>
          </li>
          <li>
-             <form action="{{route('comment.destroy', $comment->id)}}" method="post">
+             <form action="{{route('comments.destroy', $comment->id)}}" method="post">
                @csrf
                  @method('DELETE')
                  <input type="submit" value="Delete Comment">
@@ -31,6 +31,6 @@
          </li>
          @endauth
        </ul>
-       @include('partials.comment_replies', ['comments' => $comment->replies])
+       @include('comments.comment_replies', ['comments' => $comment->replies])
    </div>
 @endforeach

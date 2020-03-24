@@ -3,26 +3,32 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Comment extends Model
 {
-  //
-   protected $fillable = array(
-     'body',
-   );
+  use SoftDeletes;
 
-   public function user()
-   {
-      return $this->belongsTo('App\User');
-   }
 
-   public function replies()
-   {
-      return $this->hasMany('App\Comment', 'parent_id');
-   }
+      //
+    protected $fillable = array(
+        'body',
+    );
 
-   public function likes()
-   {
-     return $this->hasMany('App\like');
-   }
+    public function user()
+    {
+        return $this->belongsTo( 'App\Tweet' );
+    }
+
+    public function replies()
+    {
+        return $this->hasMany('App\Comment', 'parent_id');
+    }
+
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+
+
 }

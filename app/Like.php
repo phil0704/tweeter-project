@@ -10,7 +10,7 @@ class Like extends Model
     protected $fillable = array(
       'likes_id', 'user_id', 'likeable_type'
     );
-
+    
     use SoftDeletes;
 
     protected $table = 'likes';
@@ -20,7 +20,7 @@ class Like extends Model
         return $this->belongsTo('App\Like');
     }
 
-    public function posts()
+    public function tweets()
     {
         return $this->belongsTo('App\Like');
     }

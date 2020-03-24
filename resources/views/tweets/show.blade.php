@@ -9,17 +9,18 @@ Show Tweet
     {{ $tweet->message }}
 </p>
 
-@include('partials.errors')
+@include('command.errors')
 
 <h3><a href="{{route('profile.show', $tweet->user->id)}}">{{$tweetUser->name}}</a></h3>
 <p>
   {{$tweet->message}}
 </p>
 <h4>Display Comments</h4>
-@include('partials.comment_replies', ['comments' => $tweet->comments, '$tweet_id' => $tweet->id])
-<h4>Add comment</h4>
 
-      <form method="post" action="{{ route('comment.add') }}">
+@include('command.comment_replies', ['comments' => $tweet->comments(), '$tweet_id' => $tweet->id])
+
+<h4>Add comment</h4>
+      <form method="post" action="{{ url('/tweets/' . $tweet->id . '/comment' ) }}">
         @csrf
         <div class="form-group">
           <input type="text" name="comment_body" class="form-control" />

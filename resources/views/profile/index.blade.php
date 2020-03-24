@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
-Profile
+Profile Index
 @endsection
 
 @section('content')
@@ -14,17 +14,18 @@ Profile
 
 @include('command.errors')
 
-  <h2>{{$user->name}}</h2>
-   <p>
+  <h3>{{$user->name}}</h3>
+
     <ul>
-      <li>
-         Email: {{$user->email}}
+        <li>
+            <h3>{{$user->email}}</h3>
+          </li>
+       <li>
+           <h3>{{$user->username}}</h3>
       </li>
-    <li>
-         username: {{$user->username}}
-   </li>
  </ul>
+
   <a href="{{route('profile.edit', $user->id)}}">Edit Profile</a>
 
-</p>
+
 @endsection

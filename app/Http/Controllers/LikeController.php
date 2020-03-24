@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class LikeController extends Controller
 {
-
+/*
   public function likePost($id)
   {
 
@@ -31,7 +31,7 @@ class LikeController extends Controller
               'likes_id' => $id,
               'likeable_type' => $type,
           ]);
-          
+
       } else
           {
           if (is_null($existing_like->deleted_at)) {
@@ -41,4 +41,5 @@ class LikeController extends Controller
               $existing_like->restore();
           }
       }
+      */
 }

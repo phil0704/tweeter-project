@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Tweet;
 use App\User;
 use App\Comment;
+use App\Profile;
 use App\Follower;
 use Auth;
 

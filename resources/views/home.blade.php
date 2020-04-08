@@ -8,7 +8,15 @@
       </div>
       <div class="col-9 pt-4">
       <div class="d-flex justify-content-between align-items-baseline">
-        <h1>Twitter</h1>
+
+        <h1>Profile</h1>
+        <div class="profilepic">
+        <form action="upload.php" method="post" enctype="multipart/form-data"></form>
+           Select image to upload:
+          <input type="file" name="fileToUpload" id="fileToUpload">
+          <input type="submit" value="Upload Profile Picture" name="submit">
+        </div>
+
         <a href="#">New Tweets</a>
       </div>
       <div class="d-flex">

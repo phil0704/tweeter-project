@@ -13,41 +13,48 @@ Tweets Index
 <p>List of Tweets:</p>
 <ul>
     @foreach($tweets as $tweet)
-        <li>
-            <h2>{{ $tweet->name }}</h2>
-            <p>
-                {{ $tweet->message }}
-            </p>
-            <ul>
-              <h3>
-                <li>
-                  <a href="{{route('profile.show', $tweet->user->id)}}">
-                      {{$tweet->name}}
-                   </a>
-                 </h3>
-                </li>
 
-                <li>
-                    <a href="{{ route('tweets.show', $tweet->id) }}">
-                        Read More
-                    </a>
-                </li>
-                @auth
-                    <li>
-                        <a href="{{ route('tweets.edit', $tweet->id) }}">
-                            Edit Tweet
-                        </a>
-                    </li>
-                    <li>
-                        <form action="{{ route('tweets.destroy', $tweet->id) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" value="Delete Tweet">
-                        </form>
-                    </li>
-                @endauth
-            </ul>
-        </li>
-    @endforeach
+    <li>
+ <div class="card">
+ <div class="card-header">
+ <h2>
+   <img src="images/Twitter-logo.jpg" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
+   <a href="{{route('profile.show', $tweet->user->id)}}">
+     {{$tweet->name}}
+   </a>
+ </h2>
+ </div>
+ <div class="card-body">
+   <p class="card-text">
+     {{$tweets->message}}
+   </p>
+ </div>
+   <ul>
+     <li>
+         <a href="{{route('tweets.show', $tweet->id)}}" class="btn btn-primary">
+           Read More
+         </a>
+     </li>
+     @auth
+     <li>
+       @include('command.likes')
+     </li>
+     <li>
+         <a href="{{route('tweets.edit', $tweet->id)}}" class="btn btn-primary">
+           Edit Tweet
+         </a>
+     </li>
+     <li>
+         <form action="{{route('tweets.destroy', $tweet->id)}}" method="post">
+           @csrf
+             @method('DELETE')
+             <input type="submit" value="Delete Tweet" class="btn btn-warning">
+         </form>
+     </li>
+     @endauth
+   </ul>
+ </div>
+</li>
+@endforeach
 </ul>
 @endsection

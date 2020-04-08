@@ -8,6 +8,7 @@ use App\User; // Let's pull in our User model!
 use App\Profile;
 use App\Comment;
 use App\Follower;
+use App\Likes;
 use Auth; // Need to pull in Auth in order to use it!
 
 class TweetController extends Controller

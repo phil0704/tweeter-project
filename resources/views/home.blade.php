@@ -19,29 +19,18 @@
 
         <a href="#">New Tweets</a>
       </div>
+      <div class="row pt-7">
+      <div class="col-6">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTehmPf8meHfhFmv6ObEtiUeBVhcwL4Jw0V4PW88biOMjqMT25d" class="w-100" alt="">
+       </div>
+       </div>
       <div class="d-flex">
           <div class="pr-5"><strong>157</strong> tweets</div>
           <div class="pr-5"><strong>28k</strong> followers</div>
           <div class="pr-5"><strong>528</strong> following</div>
-      </div>
-           <div class="pt-4 font-weight-bold"></div>
-
-
-
-         </div>
-        </div>
-       <div class="row pt-4">
-
-           <div class="col-4">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTdnFwM4skUjgoo-93WraO1suNqXtt1N2PGvAGEU7yX2wNv5mMS" class="w-100" alt="">
-            </div>
-
-            <div class="col-4">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTehmPf8meHfhFmv6ObEtiUeBVhcwL4Jw0V4PW88biOMjqMT25d" class="w-100" alt="">
-                    </div>
-                    <div class="col-4">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTjyZKK0SCVOnPOcZ3wk4kT8fAO7UCApTZ5d9IKpmBILiz6LcCA" class="w-100" alt="">
+       </div>
+             <div class="pt-4 font-weight-bold"></div>
                </div>
-              </div>
+               </div>   
           </div>
-          @endsection
+      @endsection

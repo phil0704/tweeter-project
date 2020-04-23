@@ -18,7 +18,7 @@
        <ul>
          @auth
          <li>
-             <a href="{{route('comments.edit', $comment->id)}}">
+             <a href="{{route('comments.edit', $comment->id)}}" class="btn btn-primary">
                Edit Comment
              </a>
          </li>
@@ -31,6 +31,6 @@
          </li>
          @endauth
        </ul>
-       @include('comments.comment_replies', ['comments' => $comment->replies])
+       @include('command.comment_replies', ['comments' => $comment->replies])
    </div>
 @endforeach

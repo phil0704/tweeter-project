@@ -17,7 +17,7 @@ Tweets Index
        <div class="card">
           <div class="card-header">
             <h2>
-              <img src="images/Twitter-logo.jpg" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
+              <img src="#" alt="">
                 <a href="{{route('profile.show', $tweet->user->id)}}">
                     {{$tweet->name}}
                 </a>
@@ -56,4 +56,5 @@ Tweets Index
 </li>
 @endforeach
 </ul>
+
 @endsection

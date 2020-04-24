@@ -14,7 +14,7 @@ Edit Tweet
     <div class="form-group">
     <label for="message">
         <strong>Edit Tweet:</strong>
-        <textarea name="message" id="message" cols="30" rows="10">{{ $tweet->message }}</textarea>
+        <textarea class="form-control" name="message" id="message" cols="30" rows="5">{{ $tweet->message }}</textarea>
     </label>
     </div>
 

@@ -10,7 +10,7 @@ Profile
 
 <div class="card">
   <div class="card-header">
-    <img src="images/Twitter-logo.jpg" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
+    <img src="#" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
     <h2>{{$user->name}}</h2>
   </div>
   <div class="card-body">
@@ -18,6 +18,9 @@ Profile
     <ul>
       <li>
           Email: {{$user->email}}
+      </li>
+      <li>
+         Location: {{$user->location}}
       </li>
     </ul>
 </p>

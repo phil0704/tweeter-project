@@ -16,7 +16,7 @@ Profile
 
 <div class="card">
   <div class="card-header">
-    <img src="angel/public/img/angel.png" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
+    <img src="tweeter/public/image/angel-logo.png" style="height: 50px; width: 50px; border-radius: 50%;" class="img-responsive">
     <h2>{{$user->name}}</h2>
   </div>
   <div class="card-body">

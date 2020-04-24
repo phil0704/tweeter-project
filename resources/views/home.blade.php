@@ -17,7 +17,7 @@
           <input type="submit" value="Upload Profile Picture" name="submit">
         </div>
 
-        <a href="#">New Tweets</a>
+        <a href="./tweets/create.blade.php">New Tweets</a>
       </div>
       <div class="row pt-7">
       <div class="col-6">

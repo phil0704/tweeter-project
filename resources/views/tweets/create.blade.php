@@ -24,3 +24,9 @@ Create Tweet Form
      
 </form>
 @endsection
+<div id="app">
+   <tweet-create-form submission-url="{{ route ('tweets.store') }}" >
+      @csrf
+    </tweet-create-form>
+    <Giphy />
+</div>

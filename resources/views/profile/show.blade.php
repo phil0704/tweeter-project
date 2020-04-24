@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('title')
- View Profile
+Profile
 @endsection
 
 @section('content')

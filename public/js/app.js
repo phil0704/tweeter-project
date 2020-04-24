@@ -1939,6 +1939,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'Giphy',
   data: function data() {
@@ -1961,6 +1965,10 @@ __webpack_require__.r(__webpack_exports__);
         // Store the returned data in our "results."
         _this.results = data;
       });
+    },
+    getImageUrl: function getImageUrl(event) {
+      var img = event.target;
+      console.log(img.src);
     }
   }
 });
@@ -37440,9 +37448,10 @@ var render = function() {
                 _c("img", {
                   attrs: {
                     src: image.images.fixed_width.url,
-                    alt: "image.title",
+                    alt: image.title,
                     title: image.title
-                  }
+                  },
+                  on: { click: _vm.getImageUrl }
                 })
               ]
             )
@@ -37492,7 +37501,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "form",
-    { attrs: { action: _vm.submissionUrl } },
+    { attrs: { action: _vm.submissionUrl, method: "POST" } },
     [_vm._t("default"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
     2
   )

@@ -1,5 +1,5 @@
 <template>
-    <form v-bind:action="submissionUrl">
+    <form v-bind:action="submissionUrl" method="POST">
         <slot></slot>
         <div class="row">
             <div class="col-md-12">

@@ -21,7 +21,11 @@
          <li v-for="image in results.data" 
            :key="image" 
            class="column is-one-quarter">
-          <img :src="image.images.fixed_width.url" alt="image.title" :title="image.title">
+          <img 
+             :src="image.images.fixed_width.url" 
+             :alt="image.title" 
+             :title="image.title"
+             @click="getImageUrl">
         </li>
        </ul>
       </div>
@@ -49,6 +53,11 @@ export default {
       .then( data => { // Store the returned data in our "results."
         this.results = data;
       });
+    },
+    getImageUrl (event)
+    {
+     const img = event.target;
+     console.log( img.src );
     }
   }
 };

@@ -144,6 +144,22 @@ class TweetController extends Controller
       }
       // Redirect by default.
       return redirect('/tweets');
+      
+    }
+    public function like(Post $tweet) {
+      $existing_like = Like::withTrashed()->wherePostId($tweet->id)->whereUserId(Auth::id())->first();
 
+      if (is_null($existing_like)) {
+        Like::create([
+          'tweet_id' => $tweet->id,
+          'user_id' => Auth::id()
+        ]);
+      } else {
+        if (is_null($existing_like->deleted_at)) {
+          $existing_like->delete();
+        } else {
+        $existing_like->restore();
+      }
     }
   }
+}

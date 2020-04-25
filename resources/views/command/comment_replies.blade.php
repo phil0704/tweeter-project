@@ -18,12 +18,12 @@
        <ul>
          @auth
          <li>
-             <a href="{{route('comments.edit', $comment->id)}}" class="btn btn-primary">
+             <a href="{{route('comment.edit', $comment->id)}}" class="btn btn-primary">
                Edit Comment
              </a>
          </li>
          <li>
-             <form action="{{route('comments.destroy', $comment->id)}}" method="post">
+             <form action="{{route('comment.destroy', $comment->id)}}" method="post">
                @csrf
                  @method('DELETE')
                  <input type="submit" value="Delete Comment">

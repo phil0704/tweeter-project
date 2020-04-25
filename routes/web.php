@@ -28,10 +28,10 @@ Route::get('tweets', 'HomeController@posts')->name('tweets');
 Route::get('/p/create', 'TweetController@create')->name('profile.create');
 
 Route::resource('tweets', 'TweetController');
-Route::resource('comments', 'CommentController');
+Route::resource('comment', 'CommentController');
 Route::resource('profile', 'ProfileController');
 
-Route::post('/comments/store', 'CommentController@store')->name('comment.add');
+Route::post('/comment/store', 'CommentController@store')->name('comment.add');
 Route::post('/reply/store', 'CommentController@replyStore')->name('reply.add');
 Route::post('/p', 'TweetController@store')->name('tweets.store');
 Route::post('follow', 'HomeController@follwUserRequest')->name('follow');

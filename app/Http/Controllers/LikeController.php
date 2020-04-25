@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Like;
+use App\User;
+use App\Tweet;
+use App\Comment;
+use App\Profile;
+use Auth;
 
 class LikeController extends Controller
 {

@@ -28,3 +28,11 @@ Show Tweet
       </form>
 
 @endsection
+<div id="app">
+        <tweet-create-form 
+        v-model="message"
+        submission-url="{{ route ('tweets.store') }}">
+            @csrf
+        </tweet-create-form>
+        <Giphy v-on:image-clicked="imageClicked"/>
+</div>

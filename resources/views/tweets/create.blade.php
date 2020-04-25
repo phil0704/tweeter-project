@@ -5,7 +5,6 @@ Create Tweet
 @endsection
 @section('content')
 
-
 @include('command.errors')
 <form method="post" action="{{ route('tweets.store') }}">
     @csrf
@@ -15,7 +14,15 @@ Create Tweet
          <strong>Create a Tweet</strong>
          <textarea name="message" id="message" cols="30" rows="5"></textarea>
      </label>
+     </div>
      
+     <div class="form-group">
+     <label for="Image">
+     <strong>Select image to upload</strong>
+     <br>
+     <input type="file" name="image" id="image"> 
+     </label> 
+
      </div>
      <div class="form-group">
      <input type="submit" class="btn btn-warning" value="Publish Tweet">

@@ -3,7 +3,7 @@
         <strong>{{ $post->username }}</strong>
         <p>{{ $comment->content }}</p>
         <a href="" id="reply"></a>
-        <form method="post" action="{{ route('comment.store') }}">
+        <form method="post" action="{{ route('comments.store') }}">
             @csrf
             <div class="form-group">
                 <input type="text" name="content" class="form-control" />
@@ -17,19 +17,18 @@
         </form>
 
             <div class="form-group">
-                <a href="{{ route('comment.edit', $comment->id) }}" class="btn btn-primary">Edit Comment</a>
+                <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-primary">Edit Comment</a>
             </div>
 
         <div class="form-group">
-        <form action="{{ route('comment.destroy', $comment->id) }}" method="post">
-            @csrf
-            @method('DELETE')
-            <input class="btn btn-danger" type="submit" value="Delete Comment">
-        </form>
+           <form action="{{ route('comments.destroy', $comment->id) }}" method="post">
+              @csrf
+              @method('DELETE')
+             <input class="btn btn-danger" type="submit" value="Delete Comment">
+           </form>
         </div>
-
 
         @include('command.comment_replies', ['comments' => $comment->replies])
-        </div>
-        @endauth
+    </div>
+    @endauth
 @endforeach

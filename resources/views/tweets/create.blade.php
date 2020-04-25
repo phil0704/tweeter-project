@@ -11,17 +11,24 @@ Create Tweet
     {{-- ^^^ Cross-site request forgery protection --}}
     <div class="form-group">
      <label for="message">
-         <strong>Create a Tweet</strong>
+         <strong>What's on your mind?</strong>
          <textarea name="message" id="message" cols="30" rows="5"></textarea>
      </label>
      </div>
-     
+
      <div class="form-group">
      <label for="Image">
      <strong>Select image to upload</strong>
      <br>
      <input type="file" name="image" id="image"> 
      </label> 
+ 
+     <div id="app1">
+        <tweet-create-form submission-url="{{ route ('tweets.store') }}" >
+            @csrf
+        </tweet-create-form>
+        <Giphy />
+      </div>
 
      </div>
      <div class="form-group">
@@ -29,9 +36,3 @@ Create Tweet
      </div>
 </form>
 @endsection
-<div id="app">
-        <tweet-create-form submission-url="{{ route ('tweets.store') }}" >
-            @csrf
-        </tweet-create-form>
-        <Giphy />
- </div>

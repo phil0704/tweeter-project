@@ -59,6 +59,9 @@ class TweetController extends Controller
             $tweet = new Tweet;
             $tweet->user_id = $user->id;
             $tweet->message = $validatedData['message'];
+            if (isset( $request->is_gif) && ($request->is_gif === 'true')) {
+              $tweet->is_gif = TRUE;
+            }
             $tweet->save();
 
             return redirect('/tweets')->with('success', 'Tweet saved.');
@@ -114,7 +117,7 @@ class TweetController extends Controller
           $validatedData = $request->validate(array(
               'message' => 'required|max:250'
           ));
-
+           
           Tweet::whereId($id)->update($validatedData);
 
           return redirect('/tweets')->with('success', 'Tweet updated.');

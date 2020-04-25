@@ -14,6 +14,11 @@ Tweets Index
   <ul> 
     @foreach($tweets as $tweet)
      <li>
+     @if ($tweet->is_gif == TRUE)
+     <img src="{{$tweet->message}}">
+     @else
+     {{$tweet->message}}
+     @endif
        <div class="card">
           <div class="card-header">
             <h2>

@@ -22,17 +22,17 @@ Create Tweet
      <br>
      <input type="file" name="image" id="image"> 
      </label> 
- 
-     <div id="app1">
-        <tweet-create-form submission-url="{{ route ('tweets.store') }}" >
-            @csrf
-        </tweet-create-form>
-        <Giphy />
-      </div>
-
      </div>
      <div class="form-group">
      <input type="submit" class="btn btn-warning" value="Publish Tweet">
      </div>
 </form>
 @endsection
+<div id="app">
+        <tweet-create-form 
+        v-model="message"
+        submission-url="{{ route ('tweets.store') }}">
+            @csrf
+        </tweet-create-form>
+        <Giphy v-on:image-clicked="imageClicked"/>
+</div>

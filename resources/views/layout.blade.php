@@ -7,7 +7,7 @@
             @yield('title')
         </title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
-        <script src="{{ asset('js/app.js') }}" type="text/javascript" defer></script>
+       <!-- <script src="{{ asset('js/app.js') }}" type="text/javascript" defer></script> -->
        
     </head>
     <body>

@@ -1967,8 +1967,9 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     getImageUrl: function getImageUrl(event) {
-      var img = event.target;
-      console.log(img.src);
+      var img = event.target; // Bubble upward an "imageClicked" event with the image's source.
+
+      this.$emit('image-clicked', img.src);
     }
   }
 });
@@ -2007,9 +2008,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'tweet-create-form',
-  props: ['submissionUrl']
+  props: ['submissionUrl'],
+  computed: {
+    message: {
+      get: function get() {
+        // Check if it is a GIF URL, or a regular message.
+        // Updates our this .isGif data in storage.
+        this.isStringAGIFUrl(this.$attrs.value);
+        return this.$attrs.value;
+      },
+      set: function set(value) {
+        this.$emit('input', value);
+      }
+    }
+  },
+  methods: {
+    isStringAGIFUrl: function isStringAGIFUrl(string) {
+      if (string.includes('http') && string.includes('.gif')) {
+        this.isGif = true;
+        return true;
+      }
+
+      this.isGif = false;
+      return false;
+    },
+    resetMessage: function resetMessage() {
+      this.message = '';
+    }
+  },
+  data: function data() {
+    return {
+      isGif: false
+    };
+  }
 });
 
 /***/ }),
@@ -37443,7 +37479,7 @@ var render = function() {
           _vm._l(_vm.results.data, function(image) {
             return _c(
               "li",
-              { key: image, staticClass: "column is-one-quarter" },
+              { key: image.id, staticClass: "column is-one-quarter" },
               [
                 _c("img", {
                   attrs: {
@@ -37502,25 +37538,85 @@ var render = function() {
   return _c(
     "form",
     { attrs: { action: _vm.submissionUrl, method: "POST" } },
-    [_vm._t("default"), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)],
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      _vm.isGif
+        ? _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-md-12" }, [
+              _c("img", { attrs: { src: _vm.message } }),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-warning",
+                  on: { click: _vm.resetMessage }
+                },
+                [_vm._v("Reset")]
+              ),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.message,
+                    expression: "message"
+                  }
+                ],
+                attrs: { type: "hidden", name: "message" },
+                domProps: { value: _vm.message },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.message = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("input", {
+                attrs: { type: "hidden", name: "is_gif" },
+                domProps: { value: _vm.isGif }
+              })
+            ])
+          ])
+        : _c("div", { staticClass: "row" }, [
+            _c("div", { staticClass: "col-mid-12" }, [
+              _c("div", { staticClass: "form-group" }, [
+                _c("strong", [_vm._v("Message")]),
+                _vm._v(" "),
+                _c("textarea", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.message,
+                      expression: "message"
+                    }
+                  ],
+                  attrs: { name: "message" },
+                  domProps: { value: _vm.message },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.message = $event.target.value
+                    }
+                  }
+                })
+              ])
+            ])
+          ]),
+      _vm._v(" "),
+      _vm._m(0)
+    ],
     2
   )
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-md-12" }, [
-        _c("div", { staticClass: "form-group" }, [
-          _c("strong", [_vm._v("Message")]),
-          _vm._v(" "),
-          _c("textarea", { attrs: { name: "message" } })
-        ])
-      ])
-    ])
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -49732,7 +49828,17 @@ Vue.component('tweet-create-form', __webpack_require__(/*! ./components/TweetCre
  */
 
 var app = new Vue({
-  el: '#app'
+  el: '#app',
+  data: {
+    message: ''
+  },
+  methods: {
+    imageClicked: function imageClicked(imgSrc) {
+      console.log('cliked');
+      console.log(imgSrc);
+      this.message = imgSrc;
+    }
+  }
 });
 
 /***/ }),

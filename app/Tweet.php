@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tweet extends Model
 {
-   use SoftDeletes;
+   //use SoftDeletes;
 
    protected $fillable = array(
       'message',

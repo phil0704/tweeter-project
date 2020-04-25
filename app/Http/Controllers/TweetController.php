@@ -21,11 +21,11 @@ class TweetController extends Controller
     public function index()
    {
      //
-       $tweets = Tweet::query();
-                  // ->join( 'users', 'tweets.user_id', '=', 'users.id' )
-                 //  ->get();
+       $tweets = Tweet::query()
+                  ->join( 'users', 'tweets.user_id', '=', 'users.id' )
+                  ->get();
 
-       Return view('tweets.index', compact('tweets'));
+       return view('tweets.index', compact('tweets'));
    }
 
     /**

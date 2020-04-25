@@ -30,7 +30,7 @@ Tweets Index
           </div>
             <div class="card-body">
              <p class="card-text">
-                {{$tweets->message}}
+                {{$tweet->message}}
              </p>
             </div>
     <ul>
